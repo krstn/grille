@@ -1,0 +1,460 @@
+@font-face {
+    font-family:'Signika';
+    src:url('../fonts/Signika_Semibold.otf');
+}
+
+html {
+    height:100%;
+    min-height:100%;
+    background-color:black;
+    background-image:url('../images/bg.jpg');
+    background-repeat:no-repeat;
+    background-size:100% auto;
+}
+body {
+    height:100%;
+    min-height:100%;
+    margin:0 auto;
+    font-family:Verdana, source-sans-pro, Helvetica, Arial, sans-serif;
+    font-size:16px;
+    color:white;
+    line-height:1.5em;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    text-decoration:none;
+    color:#3cf;
+    cursor:pointer;
+}
+.clickable {
+    cursor:pointer;
+}
+.title {
+    font-family:'Signika';
+    font-size:36px;
+    letter-spacing:-1px;
+    margin-bottom:24px;
+}
+.highlight {
+    color:red;
+}
+.middle {
+    vertical-align:middle;
+}
+.button {
+	display:inline-block;
+	padding:10px 10px;
+    margin:0;
+    font-size:16px;
+    font-family:'Signika';
+    text-transform:uppercase;
+	color:white;
+	cursor:pointer;
+    background: -webkit-linear-gradient(red, #500);
+    background: -o-linear-gradient(red, #500);
+    background: -moz-linear-gradient(red, #500);
+    background: linear-gradient(red, #500);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+    border:0px;
+}
+form {
+    text-align:center;
+}
+form .contents {
+    width:auto;
+    max-width:580px;
+    display:inline-block;
+    text-align:left;
+}
+form .inputs {
+    padding-top:10px;
+}
+form .row {
+    display:table-row;
+}
+form .cell {
+    display:table-cell;
+    padding:5px 10px;
+    font-size:14px;
+}
+form .action {
+    padding-top:20px;
+    text-align:center;
+}
+form .text {
+    width:250px;
+    padding:8px 10px;
+    font-size:18px;
+    font-family:'Signika';
+    font-weight:lighter;
+    color:white;
+    background-color:rgba(255,255,255,0.2);
+    -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+    border:0px;
+}
+form select {
+    width:270px;
+}
+form .long {
+    width:540px;
+}
+form .error {
+    font-size:14px;
+    color:#fb0;
+}
+.confirmation {
+    padding:0 200px;
+    margin-top:40px;
+    text-align:center;
+}
+.confirmation div {
+    margin:20px 0;
+}
+.confirmation .title {
+    font-size:30px;
+}
+.confirmation .proceed {
+    font-family:'Signika';
+    font-size:36px;
+    display:inline-block;
+}
+
+/**MAIN**/
+#wrapper {
+    height:100%;
+    min-height:100%;
+}
+#container {
+    min-height:100%;
+    width:1024px;
+    max-width:1024px;
+    text-align:left;
+    position:relative;
+    padding-bottom:280px;
+    overflow:auto;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; 
+}
+#header {
+    margin-bottom:40px;
+}
+#header #auth {
+    margin:10px 0 20px 0;
+    text-align:right;
+}
+#header #auth .login {
+    font-size:14px;
+}
+#header #auth #user {
+    font-size:20px;
+    font-family:'Signika';
+    margin-right:10px;
+}
+#header #nav {
+    margin:0;
+    padding:0;
+    float:right;
+    display:table-row;
+    list-style-type:none;
+}
+#header #nav li {
+    height:125px;
+    display:table-cell;
+    padding-left:48px;
+    vertical-align:middle;
+    color:white;
+    font-family:'Signika';
+    text-transform:uppercase;
+    font-size:26px;
+}
+#header #nav li a {
+    color:white;
+}
+#footer {
+    position:relative;
+    height:200px;
+    bottom:200px;
+    padding:25px;
+    background-image:url('../images/footer_bg.png');
+    background-repeat:repeat-x;
+    background-position:bottom;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; 
+}
+#campaign {
+    height:352px;
+    margin-top:16px;
+}
+#campaign #slides {
+    width:inherit;
+    height:inherit;
+    white-space:nowrap;
+    overflow:hidden;
+    font-size:0;
+}
+#campaign #slides .slide {
+    width:1024px;
+    height:inherit;
+    display:inline-block;
+    vertical-align:middle;
+    background-repeat:no-repeat;
+    background-position:right;
+}
+#campaign #slides .content {
+    width:480px;
+    height:inherit;
+    white-space:normal;
+    display:table-cell;
+    text-align:center;
+    vertical-align:middle;
+}
+#campaign #slides .title {
+    font-family:'Signika';
+    font-size:48px;
+    line-height:48px;
+    color:#fb0;
+    padding:0 20px;
+    text-transform:uppercase;
+}
+#campaign #slides .description {
+    margin:16px 0 28px 0;
+    font-size:20px;
+    letter-spacing:-1px;
+}
+#campaign .arrow {
+    top:-216px;
+    position:relative;
+    text-align:right;
+}
+#campaign img {
+    padding:16px;
+}
+#campaign .arrow .left {
+/*    margin-left:-64px;*/
+    float:left;
+}
+#campaign .arrow .right {
+/*    margin-right:-64px;*/
+}
+
+/**INDEX**/
+#social {
+    text-align:right;
+    margin-top:32px;
+}
+#social img {
+    margin-left:12px;
+}
+.info {
+    margin-top:32px;
+    display:table;
+}
+.info .contents {
+    display:table-row;
+}
+.info video {
+    width:560px;
+    height:374px;
+    display:table-cell;
+    background:black;
+}
+.info .right {
+    display:table-cell;
+    padding-left:64px;
+    vertical-align:top;
+}
+.contact {
+    width:400px;
+    font-size:18px;
+    color:#fb0;
+    text-align:left;
+}
+.contact .item {
+    display:table-row;
+}
+.contact .item div {
+    display:table-cell;
+    vertical-align:middle;
+    padding:0 12px 12px 0;
+}
+
+/**MENU**/
+#menu {
+    min-height:500px;
+    display:table-row;
+}
+#menu .column {
+    vertical-align:top;
+    display:table-cell;
+}
+#menu .column h4 {
+    font-family:'signika';
+    padding:2px;
+}
+#menu img {
+	width:496px;
+	height:400px;
+    margin:32px;
+    display:inline-block;
+}
+
+/**RESERVATION**/
+#terms ul.contents {
+    margin:0 20px;
+    padding:10px 40px;
+    font-size:14px;
+    background-color:rgba(50,50,50,0.5);
+    -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+    border:0px;
+    list-style-type:upper-alpha;
+}
+#terms .contents li {
+    padding-left:10px;
+    margin:20px 0;
+}
+#terms .contents .subject {
+    display:inline-block;
+    margin-bottom:5px;
+    font-family:'Signika';
+    font-size:20px;
+}
+
+/**SCHEDULE**/
+.popup {
+    width:100%;
+    height:100%;
+    overflow:auto;
+    position:fixed;
+    top:0px;
+    padding:60px;
+    text-align:center;
+    vertical-align:middle;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; 
+    background-color:rgba(30,30,30,0.8);
+}
+.popup #popout {
+    position:relative;
+    float:right;
+    left:20px;
+    bottom:60px;
+}
+.schedule {
+    display:inline-block;
+    padding:40px;
+    text-align:left;
+    color:black;
+    background:white;
+    -moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+.schedule .confirmed { background:#6c6; }
+.schedule .done { background:#3bf; }
+.schedule .cancelled { background:#e66; }
+.schedule .rejected { background:#c9f; }
+.schedule .colorConfirmed { color:#6c6; }
+.schedule .colorDone { color:#3bf; }
+.schedule .colorCancelled { color:#e66; }
+.schedule .colorRejected { color:#c9f; }
+
+.schedule a {
+    color:#2ae;
+    font-size:16px;
+    font-family:'Signika';
+}
+.schedule .title {
+    text-align:center;
+}
+.schedule .contents {
+    font-size:12px;
+}
+.schedule .head {
+    width:100%;
+    margin-top:10px;
+    display:inline-block;
+    font-family:'Signika';
+    font-size:16px;
+}
+.schedule .head .date {
+    float:left;
+    text-transform:uppercase;
+    color:#e00;
+}
+.schedule .head .controls {
+    float:right;
+}
+.schedule .table {
+    width:600px;
+    display:table;
+    table-layout:fixed;
+}
+.schedule .table .row {
+    display:table-row;
+}
+.schedule .table .cell {
+    display:table-cell;
+    width:100%;
+    padding:5px;
+    background:#f3f3f3;
+    -moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+    border:1px solid white;
+    line-height:17px;
+}
+.schedule .table .date {
+    padding:15px 0 6px 0;
+}
+.schedule .table .today {
+    font-weight:bold;
+/*    background:#fafadd;*/
+}
+.schedule .table .sel {
+    background:#fafadd;
+}
+.schedule .table .date .indicator {
+    font-size:14px;
+    margin-top:-6px;
+}
+.schedule .calendar {
+    text-align:center;
+}
+.schedule .calendar .cell {
+    cursor:pointer;
+}
+.schedule .events {
+    margin-top:20px;
+}
+.schedule .events .items .type {
+    font-family:'Signika';
+    font-size:14px;
+    text-transform:uppercase;
+    vertical-align:middle;
+}
+.schedule .events .items .time {
+    margin-right:5px;
+    padding:2px 5px;
+    display:inline-block;
+    color:white;
+    -moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+}
+.schedule .events .items .posted {
+    float:right;
+    font-size:12px;
+    font-weight:lighter;
+}
+.schedule .events .items .details {
+    margin-top:5px;
+}
