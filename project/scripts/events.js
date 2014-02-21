@@ -14,8 +14,7 @@ function hideSchedule() {
 
 function showEvents(cell, dateTxt) {
     var date = new Date(dateTxt);
-    highlightCell(cell);
-    document.getElementById("eventDate").innerHTML = getMonthName(date.getMonth()) + " " + date.getDate() + ", " + date.getFullYear();
+    if(highlightCell(cell)) loadEvents(date);
 }
 
 function showToday(todayTxt) {
@@ -28,6 +27,21 @@ function changeMonth(isNext, todayTxt) {
     date.setMonth(currDate.getMonth() + (isNext?1:-1));
 //  document.getElementById("debug").innerHTML = "<br />"+date;
     setCalendar(date, new Date(todayTxt));
+}
+
+function loadSchedule() {
+    var requestParams = "request=get_schedule&date="+(currDate.getFullYear()+ "-" +addLeadingZero(currDate.getMonth()+1)+ "-01");
+    postPage("db_functions.php", requestParams, function(response) {
+        parseScheduledEvents(response);
+        setMonthEvents();
+    });
+}
+
+function loadEvents(date) {
+    var requestParams = "date="+formatDate(date);
+    postPage("schedule_events.php", requestParams, function(response) {
+        document.getElementById("events").innerHTML = response;
+    });
 }
 
 function setCalendar(date, today, isShowToday) {
@@ -78,15 +92,6 @@ function setDays(firstWDay, numDays, today, isShowToday) {
     }
 }
 
-function loadSchedule() {
-    var requestParams = "request=get_schedule&date="+(currDate.getFullYear()+ "-" +addLeadingZero(currDate.getMonth()+1)+ "-01");
-    postPage("db_functions.php", "request=get_schedule&date="+requestParams, function(response) {
-//        document.getElementById("debug").innerHTML = response;
-        parseScheduledEvents(response);
-        setMonthEvents();
-    });
-}
-
 function setMonthEvents() {
     if(schedule==undefined) loadSchedule();
     else {
@@ -127,11 +132,11 @@ function parseScheduledEvents(scheduleTxt) {
 function highlightCell(cell) {
     if(cell != prevCell) {
         cell.className += " sel";
-        if(prevCell!=cell) {
-            if(typeof prevCell==typeof cell) prevCell.className = prevCell.className.replace(" sel", "");
-            prevCell = cell;
-        }
+        if(typeof prevCell==typeof cell) prevCell.className = prevCell.className.replace(" sel", "");
+        prevCell = cell;
+        return true;
     }
+    return false;
 }
 
 function formatDate(date) {
