@@ -358,14 +358,16 @@ form .error {
 	-webkit-border-radius:10px;
 	border-radius:10px;
 }
+.schedule .unconfirmed { background:#fa3; }
 .schedule .confirmed { background:#6c6; }
 .schedule .done { background:#3bf; }
 .schedule .cancelled { background:#e66; }
-.schedule .rejected { background:#c9f; }
+.schedule .rejected { background:#c9e; }
+.schedule .colorUnconfirmed { color:#fa3; }
 .schedule .colorConfirmed { color:#6c6; }
 .schedule .colorDone { color:#3bf; }
 .schedule .colorCancelled { color:#e66; }
-.schedule .colorRejected { color:#c9f; }
+.schedule .colorRejected { color:#c9e; }
 
 .schedule a {
     color:#2ae;

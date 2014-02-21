@@ -38,6 +38,7 @@
                 <? } ?>
             </div>
             <div>
+                <span class="colorUnconfirmed">&#9679;</span> Unconfirmed &nbsp;
                 <span class="colorConfirmed">&#9679;</span> Confirmed &nbsp;
                 <span class="colorCancelled">&#9679;</span> Cancelled &nbsp;
                 <span class="colorDone">&#9679;</span> Done &nbsp;

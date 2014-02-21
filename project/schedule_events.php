@@ -1,7 +1,7 @@
 <?
 include_once 'db_access.php';
 $DATE_FORMAT = "Y-m-d";
-$EVENT_STATUS = array("confirmed","confirmed","cancelled","done","rejected");
+$EVENT_STATUS = array("unconfirmed","confirmed","cancelled","done","rejected");
 
 if(isset ($_POST["date"])) {
     $dateTxt = $_POST["date"];
@@ -22,10 +22,6 @@ if(isset ($_POST["date"])) {
             <div id="eventDate" class="date"><?echo date_format($date, "F j, Y")?></div>
         </div>
         <div class="items table">
-            <div class="row">
-                <div class="cell"></div>
-                <div class="cell"></div>
-            </div>
             <?for($i=0;$i<$num;$i++) { ?>
                 <div class="row">
                     <?for($j=$i;$j<=$i+1;$j++) { ?>

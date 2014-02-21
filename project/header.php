@@ -27,7 +27,7 @@ if (isset ($_COOKIE["user"])){
     <body onload="initSlider()">
         <center id="wrapper">
         <div id="container">
-<!--            <div id="header">
+            <div id="header">
                 <div id="auth">
                     <? if (!$login){ ?> <a class="login" href="login.php">Sign in | Register</a> 
                     <? } else { ?>  
@@ -45,4 +45,4 @@ if (isset ($_COOKIE["user"])){
                     <li><a href="about.php">About</a></li>
                     <li><a href="reservations.php"><img src="images/reserve.png"></a></li>
                 </ul>
-            </div>-->
+            </div>

@@ -1,4 +1,4 @@
-var EVENT_STATUS = new Array("Confirmed","Confirmed","Cancelled","Done","Rejected");
+var EVENT_STATUS = new Array("Unconfirmed","Confirmed","Cancelled","Done","Rejected");
 var currDate, schedule, prevCell="";
 
 function showSchedule(todayTxt) {
