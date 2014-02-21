@@ -293,15 +293,44 @@ form .error {
     vertical-align:top;
     display:table-cell;
 }
-#menu .column h4 {
-    font-family:'signika';
-    padding:2px;
-}
 #menu img {
 	width:496px;
-/*	height:400px;*/
     margin:32px;
     display:inline-block;
+}
+
+/**MENU**/
+#news .item {
+    margin:50px 0;
+    overflow:auto;
+}
+#news .item .date, #news .item .author {
+    font-family:'Signika';
+}
+#news .item .author {
+    color:red;
+}
+#news .item .headline {
+    font-size:30px;
+    font-family:'Signika';
+    color:#fb0;
+    vertical-align:middle;
+    margin:5px 0;
+}
+#news .item .image {
+    float:left;
+    width:300px;
+    max-height:300px;
+    margin:0 20px 10px 0;
+    overflow:auto;
+    -moz-border-radius:150px;
+	-webkit-border-radius:150px;
+	border-radius:150px;
+    background:white;
+}
+#news .item img {
+    width:300px;
+    margin-bottom:-6px;
 }
 
 /**RESERVATION**/
