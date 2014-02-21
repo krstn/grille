@@ -1,32 +1,11 @@
 <div class="popup">
-    <div id="debug">
-        <?
-$today = date_create();
-$todayTxt = date_format($today, "Y-m-d");
-//echo "<br />". date(Y);
-//$nowMonth = date_format($now, "n");
-//$nowYear = date_format($now, "n");
-//echo "<br />". $month;
-//$prevMonth = date_create();
-//$nextMonth = date_create();
-//date_date_set($prevMonth, 2001, 1, 28);
-//date_date_set($nextMonth, 2001, 1, 28);
-//date_sub($prevMonth, date_interval_create_from_date_string('1 months'));
-//date_add($nextMonth, date_interval_create_from_date_string('1 months'));
-
-//date_date_set($today, 2001, 8, 3);
-//echo "<br />". date_format($now, "Y m d");
-//echo "<br />". date_format($nextMonth, "Y m d");
-//echo "<br />". date_format($prevMonth, "Y m d");
-
-//echo "<br />". date_format($today, "Y m d N D");
-?>
+    <div id="debug" style="font-size:10px;color:#0fd;padding-bottom:20px;padding-left:800px;text-align:left">
     </div>
     <div class="schedule">
         <div id="popout" class="clickable" onclick="hideSchedule()">
             <img src="images/close.png" />
         </div>
-        <div class="title">Reservations Calendar</div>
+        <div class="title">Calendar</div>
         <div class="contents"> 
             <div class="head" >
                 <div id="month" class="date">&nbsp;</div>
@@ -38,17 +17,23 @@ $todayTxt = date_format($today, "Y-m-d");
             </div>
             <div id="calendar" class="calendar table">
                 <div class="days row">
-                    <? for($i=0; $i<7; $i++) { ?>
-                    <div class="day cell"> <?echo date("D", strtotime("2014-W01-".$i));?></div>
+                    <? 
+                    $cellCount=0;
+                    for($i=0; $i<7; $i++) { 
+                    ?>
+                        <div class="day cell"> <?echo date("D", strtotime("2014-W01-".$i));?></div>
                     <? } ?>
                 </div>
                 <? for($i=0; $i<6; $i++) { ?>
                 <div id="row_<?echo $i?>" class="dates row">
-                    <? for($j=0; $j<7; $j++) { ?>
-                    <div id="cell_<?echo $i.'_'.$j?>" class="date cell">
-                        <div id="date_<?echo $i.'_'.$j?>">&nbsp;</div>
-                        <div id="event" class="indicator">&nbsp;</div>
-                    </div>
+                    <? 
+                    for($j=0; $j<7; $j++) { 
+                        $cellCount++;
+                    ?>
+                        <div id="cell_<?echo $cellCount?>" class="date cell">
+                            <div id="date_<?echo $cellCount?>">&nbsp;</div>
+                            <div id="event_<?echo $cellCount?>" class="indicator">&nbsp;</div>
+                        </div>
                     <? } ?>
                 </div>
                 <? } ?>

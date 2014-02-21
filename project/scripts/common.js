@@ -13,6 +13,23 @@ function loadPage(url, callback) {
     xmlhttp.send();
 }
 
+function postPage(url, vars, callback){
+    var xmlhttp;
+    if (window.XMLHttpRequest) xmlhttp=new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+    else xmlhttp=new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+    
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            callback(xmlhttp.responseText);
+        }
+    };
+    
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(vars);
+    //var vars = "firstname="+fn+"&lastname="+ln;
+}
+
 function getDivChildCount(element) {
     var count = 0;
     for (var i=0; i<element.childNodes.length; i++) {
@@ -61,6 +78,11 @@ function getMonthDays(year, month) {
     return new Date(year, month+1, 0).getDate();
 }
 
-function getMonthFirstWDay(year, month) {
-    return new Date(year, month, 1).getDay();
+function getMonthFirstWDay(date) {
+    return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+}
+
+function addLeadingZero(num) {
+    if(num < 10) num = "0" + num;
+    return num;
 }
