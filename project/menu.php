@@ -1,6 +1,4 @@
-<?
-include 'header.php';
-?>
+<? include 'header.php'; ?>
             
             <div id="menu">
                 <div class="column">
@@ -12,8 +10,4 @@ include 'header.php';
 					<img src="images/menu/menu3.jpg" />
                 </div>
             </div>
-        </div>
-		
-        </center>
-    </body>
-</html>
+<? include 'footer.php'; ?>
