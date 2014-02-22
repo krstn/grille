@@ -12,14 +12,19 @@ if (isset ($_COOKIE["user"])){
 ?>
 
 
-<html>
+<html lang="en">
 	<head> 		
-		<title> <?php echo $page; ?> | CVKC Auto Parts </title>
+	 <meta charset="utf-8">
+		<title> <?php echo $page; ?> | Grill Guru </title>
+		<link rel="Stylesheet" href="css/main.css" type="text/css" media="screen" />
 		<link rel="Stylesheet" href="css/style.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="scripts/scripts.js"> </script>
-		<link rel="icon" href="cvkc.jpg">
+		<link rel="icon" href="icons/logo.png">
 		<script src="themes/1/js-image-slider.js" type="text/javascript"></script>
 		<script src="themes/3/js-image-slider.js" type="text/javascript"></script>
+        <script type="text/javascript" src="scripts/common.js"></script>
+        <script type="text/javascript" src="scripts/events.js"></script>
+		<script type="text/javascript" src="scripts/jsDatePick.jquery.min.1.3.js"></script>
 		<link href="generic.css" rel="stylesheet" type="text/css" />
 		
 	</head>
@@ -30,22 +35,25 @@ if (isset ($_COOKIE["user"])){
 				<div id="axe"> </div>
 				<div id="auth" <? if ($login==true ) { ?> class="on" <? } ?>>
 					
-					<?php if ($login==false){ ?> <a id="login" href="login.php"> Login as Admin </a> 
+					<?php if ($login==false){ ?> <a id="login" href="login.php"> Admin Login </a> 
 					<?php } else { ?>  
-						<a id="login" href="logout.php">| Logout </a>
+						<a href="logout.php" id="login" onClick="confirmation();"> Logout </a>
 						 <div id="user"> <? echo " Welcome! ". $_COOKIE["user"]; ?> </div> 
 					<?php } ?>
 				</div>
-				<div id="rollyn"> </div>
+				
 				<div id="navbar">
 					<ul class="tab">
-						<li> <a class="<? if (strcasecmp($page, "home") == 0) echo "on"; ?>" href="index.php"> HOME </a> </li>
-						<li> <a class="<? if (strcasecmp($page, "about") == 0) echo "on"; ?>" href="about.php"> About </a> </li>
-						<li> <a class="<? if (strcasecmp($page, "news") == 0) echo "on"; ?>" href="news.php"> News </a> </li>
-						<li> <a class="<? if (strcasecmp($page, "product") == 0) echo "on"; ?>" href="product.php"> Products </a> </li>
-						<li> <a class="<? if (strcasecmp($page, "contact") == 0) echo "on"; ?>" href="contact.php"> Contact </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "home") == 0) echo "on"; ?>" href="index.php"> Home </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "news") == 0) echo "on"; ?>" href="edit_news.php"> News </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "users") == 0) echo "on"; ?>" href="users.php"> Users </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "menu") == 0) echo "on"; ?>" href="products.php"> Menu </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "reservations") == 0) echo "on"; ?>" href="reserve.php"> Reservations </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "sales") == 0) echo "on"; ?>" href="sales.php"> Sales </a> </li>
+						<li> <a class="<? if (strcasecmp($page, "inventory") == 0) echo "on"; ?>" href="inventory.php"> Inventory </a> </li>
+						
 					</ul>
 				</div>
-				<div id="rollyns"> </div>
+				
 			</div>
 			

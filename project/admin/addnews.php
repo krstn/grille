@@ -18,7 +18,7 @@ if($login==true){
 		$temp= $_FILES['image']['tmp_name'];
 		$type= $_FILES['image']['type'];
 		$size= $_FILES['image']['size'];
-		if(($type=="image/jpeg")||($type=="image/png")||($type=="image/jpg")||($type=="image/gif"))
+		if(($type=="image/jpeg")||($type=="image/png")||($type=="image/jpg")||($type=="image/gif") )
         {
 			$image = "images/".$name;
 			move_uploaded_file($temp,$image);
@@ -27,10 +27,11 @@ if($login==true){
         {
 			echo "File type Error.";
 		}
-	if (isset ($_POST["news"])){
-	$name=$_POST["news"];
+	if (isset ($_POST["desc"])){
 	$description=$_POST["desc"];
-	
+	$news = $_POST["news"];
+	$date = $_POST["date"];
+	$by = $_POST["by"];
 	
 	
 	if ((strlen($name)>5)){
@@ -38,7 +39,7 @@ if($login==true){
 		@mysql_select_db($dbName) or die("Unable to open database");
 		
 		
-		$query= "SELECT * FROM news WHERE description = '".$name."' ";
+		$query= "SELECT * FROM news WHERE descrition = '".$name."' ";
 		$result=mysql_query($query);
 		$num=mysql_numrows($result);
 			
@@ -47,7 +48,7 @@ if($login==true){
 		}
 		else {
 			
-			$query1 = "INSERT INTO news VALUES ('','" . $name . "','" . $image . "','" . $description . "')";
+			$query1 = "INSERT INTO news VALUES ('','" . $description . "','" . $image . "','" . $news . "','" . $date . "','" . $by . "')";
 			$result1=mysql_query($query1);
 			if (!mysql_query($query,$con)) { 
 				die ('Cannot Register'.mysql_error());
@@ -73,17 +74,19 @@ if($login==true){
 				<table >
 					<tr>
 						<td>Description: </td>
-						<td> <input type="text" name="news"/> </td>
+						<td> <input type="text" name="desc"/> </td>
 					</tr>
 					<tr>
 						<td>News: </td>
-						<td> <textarea name="desc" > </textarea> </td>
+						<td> <textarea name="news" > </textarea> </td>
 					</tr>
 					<tr>
 						<td>Image: </td>
 						<td> <input class="submit" type="file" name="image" > </td>
 					</tr>
 				</table>
+				<input style="display:none;" type="text" name="date" value="<?echo date("Y-m-d");?>" />
+				<input style="display:none;" type="text"  name="by" value=" <?echo $_COOKIE["user"];?>"/>					
 				<input class="submit" type="submit" name="submit" id="submit" value="OK"/>
 				<input class="submit" type="Reset" name="Reset" value="Reset"/>
 									
@@ -92,7 +95,7 @@ if($login==true){
 			<?php } else { ?>
 			<center>
 				<div class="info"> News Added  </div>
-				<a class="submit" href="index.php"> OK </a>
+				<a class="submit" href="edit_news.php"> OK </a>
 			</center>
 			<?php } ?>
 			<?php }  else {?>

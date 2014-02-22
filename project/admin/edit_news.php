@@ -1,5 +1,5 @@
 <?php 
-$page='Edit News';
+$page='News';
 $login=false;
 
 if (isset ($_COOKIE["user"])){
@@ -21,34 +21,43 @@ if (isset ($_GET["del"])){
 	}
 }
 
-
-$query= "SELECT * FROM news ORDER by id ASC;";
+if ($login == true) {
+$query= "SELECT * FROM news ORDER by id DESC;";
 $result=mysql_query($query);
 $num=mysql_numrows($result);
 $date = date("Y-m-d");
 $user = $_COOKIE["user"];
-
+}
 mysql_close();
 
 ?>
 		<div id="contents">
+		<? if ($login == true) {?>
+		<br>
+	<form class="lists" action="search_news.php" method="GET">
+	<input type="text" name="search" />	
+		<input class="submit" type="submit" value="Search" onClick="goTo();" />
+	</form>
 			<div class="pageTitle"><? echo $page; ?></div>
-			<?$i; for ($i=0; $i < $num; $i++) {?>
-				<h3> <b> <? echo mysql_result($result,$i,"name"); ?> </b> </h3>
-				<hr style="border:dotted; color:#191919;">
+			 <?$i; for ($i=0; $i < $num; $i++) {?>
+			
+				<h3 class="subtitle"> <b > <? echo mysql_result($result,$i,"descrition"); ?> </b> </h3>
+				
 				<ul>
 					<li> <img src= <?echo mysql_result($result,$i,"image"); ?> style="width:500; height:350;" > </img> </li>
 				</ul>
 				
 				<ul>
-					<li type="circle"> <?echo mysql_result($result,$i,"description"); ?> </li>
+					<li type="circle"> <?echo mysql_result($result,$i,"news"); ?> </li>
 				
 					<li>
-						<a class="submit" href="manage_news_edit.php?id=<? echo mysql_result($result,$i,"id")?>&descz=<? echo mysql_result($result,$i,"name"); ?>&newsz=<? echo mysql_result($result,$i,"description"); ?>">Edit</a>
+						<a class="submit" href="manage_news_edit.php?id=<? echo mysql_result($result,$i,"id")?>">Edit</a>
 						<a class="submit" href="edit_news.php?del=<? echo mysql_result($result,$i,"id")?>">Delete</a>
 					</li>
 				</ul>
-				<? } ?>
+				<? } }else {?>
+															<center><h2 style="color:#aaa;"> Sorry, you need to have administrative authority to access, login as <a href="login.php">admin </a> </h2></center>
+														<?}?>
 
 		</div>
 		<? include 'footer.php'; ?>

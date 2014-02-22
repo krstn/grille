@@ -23,9 +23,9 @@ mysql_close();
 						<tr >
 						<td style="width:50%; ">
 							
-							<h3> <b style="color:#000;"> <? echo mysql_result($result,$i,"name"); ?> </b> </h3>
+							<h3> <b style="color:#000;"> <? echo mysql_result($result,$i,"descrition"); ?> </b> </h3>
 							<ul>
-								<li type="circle" style="color:#000;"> <?echo mysql_result($result,$i,"description"); ?> </li>
+								<li type="circle" style="color:#000;"> <?echo mysql_result($result,$i,"news"); ?> </li>
 							</ul>
 							</td>
 						<td style="width:50%; ">

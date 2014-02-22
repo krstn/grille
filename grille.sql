@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.2.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2014 at 03:12 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Generation Time: Feb 22, 2014 at 12:24 AM
+-- Server version: 5.1.44
+-- PHP Version: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -221,10 +220,10 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 INSERT INTO `news` (`id`, `descrition`, `image`, `news`, `date`, `by`) VALUES
-(8, 'sample news 2014', 'images/img.jpg', ' Try our sizzling hot Classic Chicken Fajita at 20% off today! Served with onions and bell peppers. ', '2014-01-24', ' ken'),
-(9, 'sample news of the year', 'images/66.png', 'the quick brown fox jumps over the lazy dog ', '2014-01-25', ' ken'),
-(10, 'asasaaaadadad', 'images/600038_429850283732421_947351351_n.jpg', ' adasdasdasdas asdasdasasdasd adasdasdasdasd asdasdasdasdasd asdasdasdad asdasd ', '2014-02-01', ' ken'),
-(11, 'NEW NEWS', 'images/284407_211169185600533_5012044_n.jpg', ' SAMPLE NEW NEWS', '2014-02-15', ' ken');
+(8, 'sample news 2014', 'images/news/samp1.jpg', ' Try our sizzling hot Classic Chicken Fajita at 20% off today! Served with onions and bell peppers. ', '2014-01-24', ' ken'),
+(9, 'Our Website is UP!', 'images/news/samp3.jpg', 'Subscribe to our email newsletter for useful tips and valuable resources, sent out every second Tuesday.', '2014-01-25', ' ken'),
+(10, 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...', 'images/news/samp5.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sapien mauris, sagittis eget ante quis, consequat gravida enim. Pellentesque et metus id odio scelerisque suscipit. \r\nNam porta porta posuere. Curabitur facilisis nisi et lorem hendrerit, sit amet lacinia quam aliquam. Proin interdum porttitor tincidunt. Donec dictum, turpis sed auctor interdum, nibh eros vestibulum urna, a porta leo diam vitae nulla. Aliquam vehicula ac dolor et vulputate. Curabitur bibendum mi risus, non posuere nibh sagittis quis. Pellentesque eget mollis magna. Praesent molestie ipsum ut luctus commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet blandit magna, quis blandit erat. Aliquam euismod nibh erat.', '2014-02-01', ' ken'),
+(11, 'Jon Stewart Has Bad Luck With Snacks', 'images/news/img.jpg', 'A lot of food is being changed or recalled, and Jon is trying to eat all of them.', '2014-02-15', ' ken');
 
 -- --------------------------------------------------------
 
@@ -280,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `date` date NOT NULL,
   `mobile` varchar(250) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `rdate` varchar(200) NOT NULL,
+  `rdate` date NOT NULL,
   `time` varchar(255) NOT NULL,
   `t_e` varchar(200) NOT NULL,
   `venue` varchar(200) NOT NULL,
@@ -289,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `total` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=115 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=118 ;
 
 --
 -- Dumping data for table `reservations`
@@ -297,15 +296,18 @@ CREATE TABLE IF NOT EXISTS `reservations` (
 
 INSERT INTO `reservations` (`id`, `rid`, `persons`, `fname`, `lname`, `address`, `date`, `mobile`, `email`, `rdate`, `time`, `t_e`, `venue`, `status`, `penalty`, `total`) VALUES
 (102, '1012', 1, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '10:00:00', '13:00:00', 'not applicable', 4, 0, 0),
-(103, '9059', 22, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '15:00:00', '18:00:00', 'Dining Room', 2, 0, 2200),
-(104, '26695', 27, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '10:00:00', '13:00:00', 'Dining Room', 3, 0, 2700),
-(106, '16721', 1, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '19:00:00', '22:00:00', 'not applicable', 3, 0, 0),
-(107, '10905', 9, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-27', '10:00:00', '13:00:00', 'not applicable', 3, 0, 0),
-(109, '11702', 15, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '17:00:00', '20:00:00', 'Function Room', 3, 0, 1500),
+(103, '9059', 22, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '12:00:00', '18:00:00', 'Dining Room', 2, 0, 2200),
+(104, '26695', 27, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-03-31', '10:00:00', '13:00:00', 'Dining Room', 3, 0, 2700),
+(106, '16721', 1, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-04', '903283840 ', ' ayos@yahoo.com', '2014-02-19', '19:00:00', '22:00:00', 'not applicable', 3, 0, 0),
+(107, '10905', 9, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-27', '10:00:00', '13:00:00', 'not applicable', 1, 0, 0),
+(109, '11702', 15, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2013-12-13', '17:00:00', '20:00:00', 'Function Room', 3, 0, 1500),
 (110, '21028', 27, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-02-28', '17:00:00', '20:00:00', 'Dining Room', 3, 0, 2700),
 (111, '20912', 25, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-04-16', '10:00:00', '13:00:00', 'Dining Room', 3, 0, 2500),
-(112, '26602', 46, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-04-26', '18:00:00', '21:00:00', 'Dining Room', 1, 0, 4600),
-(114, '5292', 1, 'juan ', 'lazy ', 'bacolod, neg occ ', '2014-02-15', '09182736485 ', ' juanlazy@gmail.com', '2014-02-19', '11:00:00', '14:00:00', 'not applicable', 4, 0, 0);
+(112, '26602', 46, 'ivan ', 'rubio ', 'Cadiz ', '2014-02-15', '903283840 ', ' ayos@yahoo.com', '2014-01-06', '18:00:00', '21:00:00', 'Dining Room', 1, 0, 4600),
+(114, '5292', 1, 'juan ', 'lazy ', 'bacolod, neg occ ', '2014-02-15', '09182736485 ', ' juanlazy@gmail.com', '2014-02-19', '11:00:00', '14:00:00', 'not applicable', 4, 0, 0),
+(115, '1885105695', 8, 'KennethJames', 'Peromingan1989', 'Calatrava', '2014-02-17', '34', 'k@e.com', '2014-02-21', '16:00:00', '19:00:00', 'Alfresco', 0, 0, 0),
+(116, '1328617002', 1, 'KennethJames', 'Peromingan1989', 'Calatrava', '2014-02-17', '2123', 'k@e.com', '2014-02-08', '10:00:00', '13:00:00', 'Dining Room', 0, 0, 0),
+(117, '894620569\r', 6, 'KennethJames', 'Peromingan1989', 'Calatrava', '2014-02-20', '421423523512', 'k@e.com', '2014-04-07', '15:00:00', '18:00:00', 'Function Room', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -456,7 +458,3 @@ INSERT INTO `users` (`id`, `username`, `password`, `image`, `email`, `mobile`, `
 (24, 'juan', 'lazy', '', 'juanlazy@gmail.com', '09182736485', 'juan', 'lazy', 'bacolod, neg occ', 'customer', 1, 'Mr.'),
 (25, 'bonbon', 'bonbon', '', 'bonbon@gmail.com', '09128787569', 'Bon Bon', 'Pastor', '', 'customer', 1, ''),
 (26, 'samplejan25', 'samplejan25', '', 'sample@sample.com', '09282837465', 'samplejan25', 'samplejan25', 'Bacolod, Negros Occidental', 'customer', 1, 'Mr.');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

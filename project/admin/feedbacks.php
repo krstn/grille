@@ -35,12 +35,13 @@ mysql_close();
 <div id="contents">
 <? if($login==true){ if ($_COOKIE["type"]=="admin") { ?>
 	<div class="pageTitle"> <?php echo $page; ?> </div>
-	<table class="list">
+	<table class="lists">
 		<tr>
 			<th> First Name </th>
 			<th> Last Name </th>
 			<th> E-mail </th>
 			<th> Message </th>
+			<th> Action </th>
 		</tr>
 
 		<? $i;
@@ -49,7 +50,7 @@ mysql_close();
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result,$i,"id"); ?>" style="color:red"><? echo mysql_result($result,$i,"fname"); ?></a> </td>
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result,$i,"id"); ?>" style="color:red"><? echo mysql_result($result,$i,"lname"); ?></a> </td>
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result,$i,"id"); ?>" style="color:red"><? echo mysql_result($result,$i,"email"); ?></a> </td>
-			<td><textarea> <? echo mysql_result($result,$i,"message"); ?></textarea> </td>
+			<td><a href="view_feed.php?id=<? echo mysql_result($result,$i,"id"); ?>" style="color:red"><? echo mysql_result($result,$i,"message"); ?></a> </td>
 			<td class="button"> 
 				<a class="submit" href="feedbacks.php?del=<? echo mysql_result($result,$i,"id")?>">Delete</a> 
 				</td>
@@ -63,7 +64,7 @@ mysql_close();
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result1,$i,"id"); ?>"><? echo mysql_result($result1,$i,"fname"); ?></a> </td>
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result1,$i,"id"); ?>"><? echo mysql_result($result1,$i,"lname"); ?></a> </td>
 			<td> <a href="view_feed.php?id=<? echo mysql_result($result1,$i,"id"); ?>"><? echo mysql_result($result1,$i,"email"); ?></a> </td>
-			<td><textarea> <? echo mysql_result($result1,$i,"message"); ?></textarea> </td>
+			<td><a href="view_feed.php?id=<? echo mysql_result($result,$i,"id"); ?>" style="color:red"><? echo mysql_result($result1,$i,"message"); ?></a> </td>
 			<td class="button"> 
 				<a class="submit" href="feedbacks.php?del=<? echo mysql_result($result1,$i,"id")?>">Delete</a> 
 				</td>

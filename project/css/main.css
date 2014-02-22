@@ -341,6 +341,10 @@ form .error {
     background-size:100% auto;
 
 }
+#careers .title {
+    color:#fb0;
+    text-transform:uppercase;
+}
 #careers .banner {
     margin-top:20px;
 }
